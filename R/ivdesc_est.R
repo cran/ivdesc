@@ -116,7 +116,7 @@ ivdesc_all <- function(X,D,Z,boot,variance,kappa=FALSE){
 
 	# Mean / variance / standard deviation co
 
-	if( kappa == FALSE){
+	if(kappa == FALSE){
 
 	if( K_at<2){
 		
@@ -182,8 +182,10 @@ ivdesc_all <- function(X,D,Z,boot,variance,kappa=FALSE){
 
 	}
 
+	pz <- mean(Z==1)
+
 	se_mu = sd/sqrt(N)
-	se_mu_co = NA
+	se_mu_co = sqrt(get_var_mu_co(N=N,X=X,Z=Z,D=D))
 	se_mu_nt = sd_nt/sqrt(K_nt)
 	se_mu_at = sd_at/sqrt(K_at)
 
